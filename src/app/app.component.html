@@ -1,0 +1,145 @@
+<mat-sidenav-container class="tp-container">
+
+  <mat-sidenav #sidenav [mode]="mode.value" *ngIf="isLoggednIn()">
+
+    <img src="../assets/images/cpa-logo.png" width="230" height="40" style="margin-top: 10px" />
+
+    <hr>
+
+    <section class="tp-section">
+      <button mat-menu-item (click)="navigate('dashboard')" *ngIf="isLoggednIn()">
+        <mat-icon>desktop_mac</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <!-- <ng-container *ngFor="let language of languageList">
+          <a href="/{{ language.code }}/"><button class="button">{{ language.label }}</button></a>
+      </ng-container> -->
+    </section>
+
+    <section class="tp-section">
+      <button mat-menu-item (click)="navigate('evaluations')" *ngIf="isLoggednIn()">
+        <mat-icon>list</mat-icon>
+        <span>Avaliação</span>
+      </button>
+    </section>
+
+    <section class="tp-section">
+      <button mat-menu-item (click)="navigate('dashboard')" *ngIf="isLoggednIn()">
+        <mat-icon>pie_chart_outlined</mat-icon>
+        <span>Relatórios</span>
+      </button>
+    </section>
+
+    <section class="tp-section">
+      <button mat-menu-item (click)="logout()" *ngIf="isLoggednIn()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </section>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+      <!-- Content -->
+      <mat-toolbar color="primary">
+        <span class="fill-remaining-space">
+          <button mat-icon-button (click)="toggleSidenav()" value="sidebarclosed">
+            <mat-icon >menu</mat-icon>
+          </button>
+        </span>
+
+        <span class="fill-remaining-space">CPA - Unipac</span>
+
+        <button mat-icon-button [mat-menu-trigger-for]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+
+          <h5 mat-subheader>Endereço</h5>
+
+          <button mat-menu-item (click)="navigate('addresses')" *ngIf="isLoggednIn()">
+            <mat-icon>collections_bookmark</mat-icon>
+            <span>Endereço</span>
+          </button>
+
+          <mat-divider [vertical]="true"></mat-divider>
+          <h5 mat-subheader>Empresa</h5>
+
+          <button mat-menu-item (click)="navigate('company-types')" *ngIf="isLoggednIn()">
+            <mat-icon>apartment</mat-icon>
+            <span>Tipo de Empresa</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('companys')" *ngIf="isLoggednIn()">
+            <mat-icon>domain</mat-icon>
+            <span>Empresa</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('managers')" *ngIf="isLoggednIn()">
+            <mat-icon>import_contacts</mat-icon>
+            <span>Gerentes</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('departments')" *ngIf="isLoggednIn()">
+            <mat-icon>web</mat-icon>
+            <span>Departamento</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('teams')" *ngIf="isLoggednIn()">
+            <mat-icon>school</mat-icon>
+            <span>Time</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('professionals')" *ngIf="isLoggednIn()">
+            <mat-icon>person</mat-icon>
+            <span>Profissional</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('clients')" *ngIf="isLoggednIn()">
+            <mat-icon>menu_book</mat-icon>
+            <span>Cliente</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('professional-competences')" *ngIf="isLoggednIn()">
+            <mat-icon>speaker_notes</mat-icon>
+            <span>Competências Profissionais</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('positions')" *ngIf="isLoggednIn()">
+            <mat-icon>post_add</mat-icon>
+            <span>Posição de carreira</span>
+          </button>
+
+          
+ <!--  
+      
+          <button mat-menu-item (click)="navigate('questions')" *ngIf="isLoggednIn()">
+            <mat-icon>question_answer</mat-icon>
+            <span>Questões</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('responses')" *ngIf="isLoggednIn()">
+            <mat-icon>list_alt</mat-icon>
+            <span>Respostas</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('professor-disciplines')" *ngIf="isLoggednIn()">
+            <mat-icon>build</mat-icon>
+            <span>Disciplina por Professor</span>
+          </button>
+
+          <button mat-menu-item (click)="navigate('student-disciplines')" *ngIf="isLoggednIn()">
+            <mat-icon>build</mat-icon>
+            <span>Disciplina por Student</span>
+          </button-->
+
+        </mat-menu>
+      </mat-toolbar>
+      <div class="container">
+          <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+    <!-- content -->
+</mat-sidenav-container>

@@ -1,0 +1,67 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" (click)="clientDetails()">
+            <mat-icon>info</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <form [formGroup]="clientsForm" (ngSubmit)="onFormSubmit(clientsForm.value)">
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="company" formControlName="companyId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let company of companys" [value]="company.id">{{company.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('companyId').valid && clientsForm.get('companyId').touched">Please enter companyType</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('name').valid && clientsForm.get('name').touched">Please enter Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client email" formControlName="email" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('email').valid && clientsForm.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client phone" formControlName="phone" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('phone').valid && clientsForm.get('phone').touched">Please enter phone</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client mobile" formControlName="mobile" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('mobile').valid && clientsForm.get('mobile').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client motherName" formControlName="motherName" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('motherName').valid && clientsForm.get('motherName').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client dateBirth" formControlName="dateBirth" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('dateBirth').valid && clientsForm.get('dateBirth').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Client user" formControlName="userId" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!clientsForm.get('userId').valid && clientsForm.get('userId').touched">Please enter userId</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" [disabled]="!clientsForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+        </form>
+    </mat-card>
+</div>

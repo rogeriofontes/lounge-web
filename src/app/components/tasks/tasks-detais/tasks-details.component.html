@@ -1,0 +1,52 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/tasks']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Task</h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>description</dt>
+                <dd>{{task.description}}</dd>
+            </dl>
+        </mat-card-content>
+        <mat-card-content>
+            <dl>
+                <dt>totalTask</dt>
+                <dd>{{task.date}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>Client</dt>
+                <dd>{{clientName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>Job</dt>
+                <dd>{{jobDescription}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <!--mat-card-actions
+            <a mat-flat-button color="primary" [routerLink]="['/likert-skalas-edit', task.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="delete(task.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+           /mat-card-actions-->
+    </mat-card>
+</div>

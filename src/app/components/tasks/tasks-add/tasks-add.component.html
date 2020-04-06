@@ -1,0 +1,47 @@
+<div class="component-container mat-elevation-z8">
+        <div class="component-loading-shade" *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <div class="button-row">
+            <a mat-flat-button color="primary" [routerLink]="['/tasks']">
+                <mat-icon>list</mat-icon>
+            </a>
+        </div>
+        <mat-card class="component-card">
+            <form [formGroup]="tasksForm" (ngSubmit)="onFormSubmit(tasksForm.value)">
+                <mat-form-field class="component-full-width">
+                    <mat-select placeholder="professionals" formControlName="clientId" [errorStateMatcher]="matcher">
+                        <mat-option *ngFor="let client of clients" [value]="client.id">{{client.name}}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="!tasksForm.get('clientId').valid && tasksForm.get('clientId').touched">Please enter professional</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="component-full-width">
+                    <input matInput placeholder="Task" formControlName="description" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!tasksForm.get('description').valid && tasksForm.get('description').touched">Please enter description</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="component-full-width">
+                    <input matInput placeholder="Task Date" formControlName="date" [errorStateMatcher]="matcher" [matDatepicker]="myPicker">
+                    <mat-datepicker-toggle matSuffix [for]="myPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #myPicker startView="year" [startAt]="date"></mat-datepicker>
+                    <mat-error>
+                        <span *ngIf="!tasksForm.get('date').valid && tasksForm.get('date').touched">Please enter Date</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="component-full-width">
+                    <mat-select placeholder="jobs" formControlName="jobId" [errorStateMatcher]="matcher">
+                        <mat-option *ngFor="let job of jobs" [value]="job.id">{{job.description}}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="!tasksForm.get('jobId').valid && tasksForm.get('jobId').touched">Please enter company</span>
+                    </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button type="submit" [disabled]="!tasksForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+                </div>
+            </form>
+        </mat-card>
+    </div>

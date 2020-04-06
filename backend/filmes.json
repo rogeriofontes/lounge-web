@@ -1,0 +1,58 @@
+{
+  "tiposervico": [
+    {
+      "id": 1,
+      "nome": "Encanador"
+    },
+    {
+      "id": 2,
+      "nome": "Eletricista"
+    },
+    {
+      "nome": "fasdfsd",
+      "id": 3
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "terror"
+    },
+    {
+      "id": 2,
+      "nome": "Comedia"
+    }
+  ],
+  "filmes": [
+    {
+      "id": 1,
+      "nome": "Homem-Aranha: No Aranhaverso",
+      "descricao": "Filmes com boa critica"
+    },
+    {
+      "id": 2,
+      "nome": "cafarna�m",
+      "descricao": "poucos assistiram"
+    },
+    {
+      "id": 3,
+      "nome": "Uma noite de 12 anos",
+      "descricao": "bom pra pensar"
+    },
+    {
+      "id": 4,
+      "nome": "O odio que voc� semeia",
+      "descricao": "n�o assisti"
+    },
+    {
+      "id": "5",
+      "nome": "filme ta",
+      "descricao": "f"
+    },
+    {
+      "id": "6",
+      "nome": "sdfsd",
+      "descricao": "d"
+    }
+  ]
+}

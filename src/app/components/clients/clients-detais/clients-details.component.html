@@ -1,0 +1,74 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/clients']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Client details</h2>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>client:</dt>
+                <dd>{{client.name}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>email:</dt>
+                <dd>{{client.email}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>mobile:</dt>
+                <dd>{{client.mobile}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>motherName:</dt>
+                <dd>{{client.motherName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>dateBirth:</dt>
+                <dd>{{client.dateBirth}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>dateBirth:</dt>
+                <dd>{{client.phone}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>Client:</dt>
+                <dd>{{companyName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <a mat-flat-button color="primary" [routerLink]="['/clients-edit', client.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="delete(client.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

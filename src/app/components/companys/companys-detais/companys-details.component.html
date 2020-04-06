@@ -1,0 +1,96 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/companys']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Company details</h2>
+            </mat-card-title>
+            <!--       <mat-card-subtitle>{{company.name}}</mat-card-subtitle>  -->
+        </mat-card-header>
+        <mat-card-content>
+            <dl>
+                <dt>Company:</dt>
+                <dd>{{company.name}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>email:</dt>
+                <dd>{{company.email}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>address:</dt>
+                <dd>{{addressDescription}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>Company Type:</dt>
+                <dd>{{companyTypeName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>Person Type:</dt>
+                <dd>{{personTypeName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>phone:</dt>
+                <dd>{{company.phone}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>mobile:</dt>
+                <dd>{{company.mobile}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>documentRegion:</dt>
+                <dd>{{documentRegionName}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>socialId:</dt>
+                <dd>{{company.socialId}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-content>
+            <dl>
+                <dt>nationality:</dt>
+                <dd>{{company.nationality}}</dd>
+            </dl>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <a mat-flat-button color="primary" [routerLink]="['/companys-edit', company.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-flat-button color="warn" (click)="delete(company.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

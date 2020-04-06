@@ -1,0 +1,39 @@
+<div class="component-container mat-elevation-z8">
+        <div class="component-loading-shade" *ngIf="isLoadingResults">
+            <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <div class="button-row">
+            <a mat-flat-button color="primary" [routerLink]="['/teams']">
+                <mat-icon>list</mat-icon>
+            </a>
+        </div>
+        <mat-card class="component-card">
+            <form [formGroup]="teamsForm" (ngSubmit)="onFormSubmit(teamsForm.value)">
+                <mat-form-field class="component-full-width">
+                    <mat-select placeholder="departments" formControlName="departmentId" [errorStateMatcher]="matcher">
+                        <mat-option *ngFor="let department of departments" [value]="department.id">{{department.description}}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="!teamsForm.get('departmentId').valid && teamsForm.get('departmentId').touched">Please enter addresses</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="component-full-width">
+                    <input matInput placeholder="Team" formControlName="description" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!teamsForm.get('description').valid && teamsForm.get('description').touched">Please enter description</span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="component-full-width">
+                    <mat-select placeholder="leaders" formControlName="leaderId" [errorStateMatcher]="matcher">
+                        <mat-option *ngFor="let leader of managers" [value]="leader.id">{{leader.name}}</mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="!teamsForm.get('leaderId').valid && teamsForm.get('leaderId').touched">Please enter leader</span>
+                    </mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button type="submit" [disabled]="!teamsForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+                </div>
+            </form>
+        </mat-card>
+    </div>

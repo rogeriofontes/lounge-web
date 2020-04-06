@@ -1,0 +1,67 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/professionals']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <form [formGroup]="professionalsForm" (ngSubmit)="onFormSubmit(professionalsForm.value)">
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="team name" formControlName="teamId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let team of teams" [value]="team.id">{{team.description}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('teamId').valid && professionalsForm.get('teamId').touched">Please enter team name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('name').valid && professionalsForm.get('name').touched">Please enter Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional email" formControlName="email" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('email').valid && professionalsForm.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional phone" formControlName="phone" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('phone').valid && professionalsForm.get('phone').touched">Please enter phone</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional mobile" formControlName="mobile" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('mobile').valid && professionalsForm.get('mobile').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional motherName" formControlName="motherName" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('motherName').valid && professionalsForm.get('motherName').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional dateBirth" formControlName="dateBirth" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('dateBirth').valid && professionalsForm.get('dateBirth').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Professional user" formControlName="userId" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!professionalsForm.get('userId').valid && professionalsForm.get('userId').touched">Please enter userId</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" [disabled]="!professionalsForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+        </form>
+    </mat-card>
+</div>

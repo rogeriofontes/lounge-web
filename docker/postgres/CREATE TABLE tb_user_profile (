@@ -1,0 +1,8 @@
+CREATE TABLE tb_user_profile (
+    user_id bigint(20) NOT NULL,
+    profile_id bigint(20) NOT NULL,
+    CONSTRAINT user_profile_pkey PRIMARY KEY (user_id, profile_id)
+);
+
+insert into user_profile (user_id, profile_id) values (1, 1);
+insert into user_profile (user_id, profile_id) values (1, 2);

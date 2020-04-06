@@ -1,0 +1,73 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/managers']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <form [formGroup]="managersForm" (ngSubmit)="onFormSubmit(managersForm.value)">
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="companys" formControlName="companyId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let company of companys; let i = index" [value]="company.id">{{company.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!managersForm.get('companyId').valid && managersForm.get('companyId').touched">Please enter addresses</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('name').valid && managersForm.get('name').touched">Please enter Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company email" formControlName="email" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('email').valid && managersForm.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company motherName" formControlName="motherName" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('motherName').valid && managersForm.get('motherName').touched">Please enter motherName</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company dateBirth" formControlName="dateBirth" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('dateBirth').valid && managersForm.get('dateBirth').touched">Please enter dateBirth</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company userId" formControlName="userId" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('userId').valid && managersForm.get('userId').touched">Please enter userId</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company phone" formControlName="phone" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('phone').valid && managersForm.get('phone').touched">Please enter phone</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company mobile" formControlName="mobile" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('mobile').valid && managersForm.get('mobile').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company level" formControlName="level" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!managersForm.get('level').valid && managersForm.get('level').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" [disabled]="!managersForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+        </form>
+    </mat-card>
+</div>

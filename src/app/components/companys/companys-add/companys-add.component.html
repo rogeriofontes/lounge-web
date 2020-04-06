@@ -1,0 +1,85 @@
+<div class="component-container mat-elevation-z8">
+    <div class="component-loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/companys']">
+            <mat-icon>list</mat-icon>
+        </a>
+    </div>
+    <mat-card class="component-card">
+        <form [formGroup]="companysForm" (ngSubmit)="onFormSubmit(companysForm.value)">
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company Name" formControlName="name" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('name').valid && companysForm.get('name').touched">Please enter Name</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company email" formControlName="email" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('email').valid && companysForm.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="addresses" formControlName="addressId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let address of addresses" [value]="address.id">{{address.description}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!companysForm.get('addressId').valid && companysForm.get('addressId').touched">Please enter addresses</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="companyType" formControlName="companyTypeId" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let companyType of companyTypes" [value]="companyType.id">{{companyType.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!companysForm.get('companyTypeId').valid && companysForm.get('companyTypeId').touched">Please enter companyType</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="personType" formControlName="personType" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let personType of personTypes; let i = index" [value]="personType.code">{{personType.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!companysForm.get('personType').valid && companysForm.get('personType').touched">Please enter personType</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company phone" formControlName="phone" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('phone').valid && companysForm.get('phone').touched">Please enter phone</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company mobile" formControlName="mobile" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('mobile').valid && companysForm.get('mobile').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <mat-select placeholder="documentRegion" formControlName="documentRegion" [errorStateMatcher]="matcher">
+                    <mat-option *ngFor="let documentRegion of documentRegions" [value]="documentRegion.code">{{documentRegion.name}}</mat-option>
+                </mat-select>
+                <mat-error>
+                    <span *ngIf="!companysForm.get('documentRegion').valid && companysForm.get('documentRegion').touched">Please enter mobile</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company socialId" formControlName="socialId" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('socialId').valid && companysForm.get('socialId').touched">Please enter socialId</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="component-full-width">
+                <input matInput placeholder="Company nationality" formControlName="nationality" [errorStateMatcher]="matcher">
+                <mat-error>
+                    <span *ngIf="!companysForm.get('nationality').valid && companysForm.get('nationality').touched">Please enter nationality</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" [disabled]="!companysForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+        </form>
+    </mat-card>
+</div>

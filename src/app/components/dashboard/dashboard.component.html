@@ -1,0 +1,105 @@
+<br />
+<!-- Top Card -->
+<mat-card class="top-card">
+
+    <mat-card-header>
+      <div mat-card-avatar class="top-header-image"></div>
+      <mat-card-title>User{{ currentUser }}</mat-card-title>
+      <mat-card-subtitle>{{ currentUser }}</mat-card-subtitle>
+    </mat-card-header>
+    <!--img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" -->
+    <mat-card-content>
+
+      <!-- <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p> -->
+
+      <h3 i18n="@@myName">
+        Seja Bem Vindo, User
+      </h3>
+
+    </mat-card-content>
+
+</mat-card>
+
+<br />
+
+<!-- Top Card -->
+<mat-grid-list cols="col-sm col-md col-lg col-lx" rowHeight="2:1">
+  <br />
+    <div class="row">
+      <div id="graficos" class="col-sm col-md col-lg col-lx">
+        <app-barra></app-barra>
+      </div>
+
+    </div>
+    <br />
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm col-md col-lg col-lx">
+
+        <mat-card class="estimate-card">
+
+          <mat-card-header>
+            <mat-card-title>Ultimas Estimativas</mat-card-title>
+            <mat-card-subtitle>Estimativas recentemente adicionadas</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-list>
+
+            <mat-card-title>
+              Estimativas
+            </mat-card-title>
+            <mat-list-item>
+              <h3 mat-line>Estimativa 1</h3>
+            </mat-list-item>
+
+            <mat-list-item>
+              <h3 mat-line>Estimativa 2</h3>
+            </mat-list-item>
+
+            <mat-list-item>
+              <h3 mat-line>Estimativa 3</h3>
+              </mat-list-item>
+          </mat-list>
+        </mat-card>
+
+      </div>
+
+      <div class="col-sm col-md col-lg col-lx">
+        <mat-card class="estimate-card">
+
+          <mat-card-header>
+            <mat-card-title>Estimativa de Avaliação Professores</mat-card-title>
+            <mat-card-subtitle>Avaliações recentemente adicionadas</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-list>
+            <mat-card-title>
+              Professores Avaliados
+            </mat-card-title>
+
+            <mat-list-item>
+              <h3 mat-line>Professor 1</h3>
+            </mat-list-item>
+
+            <mat-list-item>
+              <h3 mat-line>Professor 2</h3>
+            </mat-list-item>
+
+            <mat-list-item>
+              <h3 mat-line>Professor 3</h3>
+            </mat-list-item>
+          </mat-list>
+
+        </mat-card>
+      </div>
+    </div>
+    <br>
+    
+  </div>
+</mat-grid-list>

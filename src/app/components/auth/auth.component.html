@@ -1,0 +1,99 @@
+<!-- Login -->
+<mat-card class="component-card" *ngIf="showLogin">
+    <!--mat-card-header>
+        <mat-card-title></mat-card-title>
+    </mat-card-header-->
+    <mat-card-content>
+        <form class="component-form">
+            <div class="wrap-login100">
+                <div class="login100-form validate-form">
+                    <div><span style="color: red">{{errorLogin}}</span></div>
+                    <form>
+
+                        <mat-form-field class="input100">
+                            <input matInput placeholder="e-mail" [(ngModel)]="user.email" name="email" (keyup)="clearError()" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="input100">
+                            <input matInput placeholder="Senha" [(ngModel)]="user.password" type="password"
+                                name="password" required>
+                        </mat-form-field>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" mat-raised-button (click)="onLogin()"
+                                color="primary">Login</button>
+                        </div>
+
+                    </form>
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div>&nbsp;</div>
+                        <div>
+                            <a href="#" class="txt1">
+                                Esqueceu a senha?
+                            </a>
+                        </div>
+                    </div>
+                    <a mat-mini-fab [color]="'success'" (click)="onShowRegiter()"
+                        style="margin-top: 140px;margin-left: 420px;">
+                        <mat-icon>note_add</mat-icon>
+                    </a>
+                </div>
+                <div class="login100-more"
+                    style="background-image: url('../assets/images/cpa-logo.png');background-size: 313px 125px;">
+                </div>
+            </div>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <!--button mat-raised-button (click)="onLogin()" color="primary">Login</button-->
+    </mat-card-actions>
+</mat-card>
+<!-- Login -->
+<!-- Register -->
+<mat-card class="component-card" *ngIf="showRegister">
+    <!--mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header-->
+    <mat-card-content>
+        <form class="component-form">
+            <div class="wrap-login100">
+                <div class="login100-form validate-form">
+                    <div><span style="color: red">{{errorRegister}}</span></div>
+                    <form>
+
+                        <mat-form-field class="input100">
+                            <input matInput placeholder="e-mail" [(ngModel)]="register.email" name="email" (keyup)="clearError()" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="input100">
+                            <input matInput placeholder="Matrícula" [(ngModel)]="register.registerNumber" type="text"
+                                name="matricula" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="input100">
+                            <input matInput placeholder="Senha" [(ngModel)]="register.password" type="password"
+                                name="password" required>
+                        </mat-form-field>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" mat-raised-button (click)="onRegister()"
+                                color="primary">Register</button>
+                        </div>
+
+                    </form>
+                    <a mat-mini-fab [color]="'success'" (click)="onShowLogin()"
+                        style="margin-top: 102px;margin-left: 420px;">
+                        <mat-icon>supervised_user_circle</mat-icon>
+                    </a>
+                </div>
+                <div class="login100-more"
+                    style="background-image: url('../assets/images/cpa-logo.png');background-size: 313px 125px;">
+                </div>
+            </div>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <!--button mat-raised-button (click)="onLogin()" color="primary">Login</button-->
+    </mat-card-actions>
+</mat-card>
+<!-- Register -->
