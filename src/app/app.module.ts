@@ -77,6 +77,11 @@ import { TeamsAddComponent } from './components/teams/teams-add/teams-add.compon
 import { TeamsEditComponent } from './components/teams/teams-edit/teams-edit.component';
 import { TeamsDetailsComponent } from './components/teams/teams-detais/teams-details.component';
 
+import { JobsComponent } from './components/jobs/jobs/jobs.component';
+import { JobsAddComponent } from './components/jobs/jobs-add/jobs-add.component';
+import { JobsEditComponent } from './components/jobs/jobs-edit/jobs-edit.component';
+import { JobsDetailsComponent } from './components/jobs/jobs-detais/jobs-details.component';
+
 import { ClientsComponent } from './components/clients/clients/clients.component';
 import { ClientsAddComponent } from './components/clients/clients-add/clients-add.component';
 import { ClientsEditComponent } from './components/clients/clients-edit/clients-edit.component';
@@ -97,6 +102,10 @@ import localePt from '@angular/common/locales/pt';
 import { TableOverviewExampleComponent } from './components/table-overview-example/table-overview-example.component';
 import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
 import { BarraComponent } from './components/barra/barra.component';
+import { TasksComponent } from './components/tasks/tasks/tasks.component';
+import { TasksAddComponent } from './components/tasks/tasks-add/tasks-add.component';
+import { TasksDetailsComponent } from './components/tasks/tasks-detais/tasks-details.component';
+import { TasksEditComponent } from './components/tasks/tasks-edit/tasks-edit.component';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -148,6 +157,24 @@ registerLocaleData(localePt, 'pt-BR');
     PositionsAddComponent,
     PositionsDetailsComponent, 
     PositionsEditComponent,
+    JobsComponent,
+    JobsAddComponent,
+    JobsEditComponent,
+    JobsDetailsComponent,
+    TasksComponent,
+    TasksAddComponent,
+    TasksDetailsComponent,
+    TasksEditComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatTableModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -179,17 +206,7 @@ registerLocaleData(localePt, 'pt-BR');
     MatStepperModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatTableModule
+    MatTooltipModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }

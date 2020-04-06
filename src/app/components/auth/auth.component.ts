@@ -22,6 +22,7 @@ export class AuthComponent implements OnInit {
   errorLogin = '';
   errorRegister = '';
   email: string;
+  showSpinner = false;
   constructor(private router: Router, private auth: AuthService) { }
 
   onLogin(): void {
